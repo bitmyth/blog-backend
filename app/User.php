@@ -4,9 +4,8 @@ namespace App;
 
 use App\Models\Comment;
 use App\Models\Post;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Tymon\JWTAuth\Contracts\Providers\JWT;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
@@ -51,7 +50,8 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         $roles = auth()->user()->roles;
-        $roleNames=collect($roles)->pluck('name');
+        $roleNames = collect($roles)->pluck('name');
+
         return ['roles' => $roleNames];
     }
 

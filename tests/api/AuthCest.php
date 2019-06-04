@@ -5,7 +5,7 @@ class AuthCest
     public function _before(ApiTester $I)
     {
         $token = $I->getToken($I);
-        $I->haveHttpHeader('Authorization', 'bearer ' . $token);
+        $I->haveHttpHeader('Authorization', 'bearer '.$token);
     }
 
     // tests
@@ -21,6 +21,5 @@ class AuthCest
         $I->sendPOST('/logout');
 
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
-
     }
 }

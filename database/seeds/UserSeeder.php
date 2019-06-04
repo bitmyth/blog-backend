@@ -13,9 +13,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         $admin = new \App\User([
-            'name' => 'adminDemo',
-            'email' => 'admin@163.com',
-            'phone' => '13470079150',
+            'name'     => 'adminDemo',
+            'email'    => 'admin@163.com',
+            'phone'    => '13470079150',
             'password' => bcrypt('123'),
         ]);
         $admin->save();

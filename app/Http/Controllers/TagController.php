@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Term;
-use Illuminate\Http\Request;
 
 class TagController extends TermController
 {
@@ -17,6 +15,7 @@ class TagController extends TermController
     {
         $categories = Term::where('taxonomy', 'tag')
             ->get();
+
         return $this->toArray($categories);
     }
 }

@@ -20,6 +20,7 @@ class CommentController extends Controller
      * Display a listing of the resource.
      *
      * @param null $post
+     *
      * @return void
      */
     public function index($post = null)
@@ -33,14 +34,13 @@ class CommentController extends Controller
         return $comments->latest()
             ->with('user')
             ->paginate();
-
     }
-
 
     /**
      * Store a newly created resource in storage.
      *
      * @param CommentRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(CommentRequest $request, $post)
@@ -57,13 +57,13 @@ class CommentController extends Controller
         });
 
         return $this->created($comment);
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comment $comment
+     * @param \App\Models\Comment $comment
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Comment $comment)
@@ -74,23 +74,26 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\Comment $comment
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Comment      $comment
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Comment $comment)
     {
         $request->validate([
-            'content' => 'required'
+            'content' => 'required',
         ]);
         $comment->update($request->only('content'));
+
         return $comment;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comment $comment
+     * @param \App\Models\Comment $comment
+     *
      * @throws \Exception
      */
     public function destroy(Comment $comment)

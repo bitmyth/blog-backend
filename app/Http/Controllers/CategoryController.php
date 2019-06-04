@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Term;
-use Illuminate\Http\Request;
 
 class CategoryController extends TermController
 {
@@ -17,5 +16,4 @@ class CategoryController extends TermController
     {
         return Term::where('taxonomy', 'category')->get();
     }
-
 }
