@@ -7,13 +7,12 @@ namespace Helper;
 
 class Api extends \Codeception\Module
 {
-
     public function getToken(\ApiTester $I)
     {
         $I->sendPOST('/login', ['password' => '123', 'email' => 'admin@163.com']);
         $response = $I->grabResponse();
         $token = (json_decode($response))->access_token;
-        return $token;
 
+        return $token;
     }
 }

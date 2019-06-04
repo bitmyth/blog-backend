@@ -24,7 +24,7 @@ class TermRequest extends FormRequest
     public function rules()
     {
         return [
-            'taxonomy' => 'required'
+            'taxonomy' => 'required',
         ];
     }
 }

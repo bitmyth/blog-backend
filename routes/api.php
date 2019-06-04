@@ -29,14 +29,12 @@ Route::middleware('auth:api')
         Route::post('me', 'AuthController@me');
     });
 
-Route::group(['auth:api' => ['except' => ['*.index']]],function () {
-        Route::resource('posts', 'PostController');
-        Route::resource('terms', 'TermController');
-        Route::resource('categories', 'CategoryController');
-        Route::resource('tags', 'TagController');
+Route::group(['auth:api' => ['except' => ['*.index']]], function () {
+    Route::resource('posts', 'PostController');
+    Route::resource('terms', 'TermController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('tags', 'TagController');
 
-        Route::resource('comments', 'CommentController');
-        Route::resource('posts.comments', 'CommentController');
-    });
-
-
+    Route::resource('comments', 'CommentController');
+    Route::resource('posts.comments', 'CommentController');
+});

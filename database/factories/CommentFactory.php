@@ -7,6 +7,6 @@ $factory->define(App\Models\Comment::class, function (Faker $faker) {
         'user_id' => $faker->randomElement(range(1, 12)),
         'post_id' => $faker->randomElement(range(1, 12)),
         'content' => $faker->text,
-        'parent' => 0,
+        'parent'  => 0,
     ];
 });
